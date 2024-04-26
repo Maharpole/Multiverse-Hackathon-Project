@@ -4,3 +4,4 @@ langchain
 fake-useragent
 python-dotenv
 langchain_community
+tldextract

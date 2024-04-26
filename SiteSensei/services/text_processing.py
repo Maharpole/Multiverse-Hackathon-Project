@@ -1,5 +1,5 @@
 from langchain_community.document_loaders import PlaywrightURLLoader
-from langchain.text_splitters import CharacterTextSplitter
+from langchain.text_splitter import CharacterTextSplitter
 
 def load_and_split_text(urls):
     loaders = PlaywrightURLLoader(urls=urls, remove_selectors=["header", "footer"])
