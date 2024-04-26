@@ -1,0 +1,6 @@
+flask
+playwright
+langchain
+fake-useragent
+python-dotenv
+langchain_community
