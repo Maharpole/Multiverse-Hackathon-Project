@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiteSensei</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Welcome to SiteSensei</h1>
+    
+    <!-- <h2>Create User</h2>
+    <form id="createUserForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+        <input type="submit" value="Create User">
+    </form>
+    <div id="response"></div> -->
+
+    <h2>Process Sitemap</h2>
+    <form id="processSitemapForm">
+        <label for="sitemap_url">Sitemap URL:</label>
+        <input type="text" id="sitemap_url" name="sitemap_url" required>
+        <input type="submit" value="Process Sitemap">
+    </form>
+</body>
+<script>
+    $(document).ready(function() {
+        // $('#createUserForm').submit(function(event) {
+        //     event.preventDefault(); // Prevent the form from submitting via the browser.
+        //     var formData = {
+        //         'username': $('input[name=username]').val(),
+        //         'password': $('input[name=password]').val()
+        //     };
+        //     $.ajax({
+        //         type: 'POST',
+        //         url: '/createUser',
+        //         data: formData,
+        //         dataType: 'json',
+        //         encode: true
+        //     })
+        //     .done(function(data) {
+        //         $('#response').html('<p>' + data.status + '</p>');
+        //     })
+        //     .fail(function(data) {
+        //         $('#response').html('<p>Error: ' + (data.responseJSON ? data.responseJSON.message : data.statusText) + '</p>');
+        //     });
+        // });
+
+        $('#processSitemapForm').submit(function(event) {
+            event.preventDefault();
+            var formData = {
+                'sitemap_url': $('input[name=sitemap_url]').val()
+            };
+            $.ajax({
+                type: 'POST',
+                url: '/processSitemap',
+                data: formData,
+                dataType: 'json',
+                encode: true
+            })
+            .done(function(data) {
+                $('#response').html('<p>' + data.status + '</p>');
+            })
+            .fail(function(data) {
+                $('#response').html('<p>Error: ' + (data.responseJSON ? data.responseJSON.message : data.statusText) + '</p>');
+            });
+        });
+    });
+</script>
+</html>
